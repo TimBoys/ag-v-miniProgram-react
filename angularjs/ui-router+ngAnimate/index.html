@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="lib/animateTest.css"/>
+		<style type="text/css">
+.pageView1.ng-enter {
+   animation: scaleUp 0.5s both ease-in;
+}
+.pageView1.ng-leave {
+   transform-origin: 0% 0%;
+   animation: rotateFall 1s both ease-in;
+}			
+
+.pageView2.ng-enter {
+   animation: slideInRight 0.5s both ease-in;
+}
+.pageView2.ng-leave {
+   animation: slideOutLeft 0.5s both ease-in;
+}			
+			
+		</style>
+	</head>
+	<body ng-app="app">
+		<div ui-view> </div>
+		
+	</body>
+	<script src="lib/angular.js" type="text/javascript" charset="utf-8"></script>
+	<script src="lib/ui-router.js" type="text/javascript" charset="utf-8"></script>
+	<script src="lib/angular-animate.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		var appModule = angular.module("app",["ui.router","ngAnimate"]);
+		appModule.controller("view1",["$scope",function($scope){
+			$scope.pageClass = "pageView1";
+		}])
+		appModule.controller("view2",["$scope",function($scope){
+			$scope.pageClass = "pageView2";
+		}])
+		appModule.config(["$stateProvider","$urlRouterProvider",function($stateProvider,$urlRouterProvider){
+			$stateProvider
+			.state("index",{
+				url:"/index",
+				templateUrl:"example/index.html"
+				
+			})
+			.state("index.view1",{
+				url:"/view1",
+				templateUrl:"example/view1.html",
+				controller:"view1"
+
+			})			
+			.state("index.view2",{
+				url:"/view2",
+				templateUrl:"example/view2.html",
+				controller:"view2"
+
+			})	
+			$urlRouterProvider.otherwise("/index")
+			
+		}])
+		
+		
+		
+	</script>
+</html>

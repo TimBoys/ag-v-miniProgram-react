@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body >
+		<div id="app">
+		<h4 v-focus>{{title}}</h4>
+		<h4 >{{title}}</h4>
+		<input type="text" name="" id="" v-model="title" v-inputfocus />
+		<first-Cmp :title="title" :obj="obj" @increment="incrementall" @childclick="parentClick">
+			<h1 slot="test">
+				<span>spanHeader</span>
+			</h1>
+			<h6>
+				<span>test</span>
+			</h6>
+			<h1 slot="test1">
+				<span>span</span>
+			</h1>			
+		</first-Cmp>
+		</div>
+		
+		<template id="firstCmp">
+			<div>
+				<h4 @click="childClick">{{ComputedTitle}}h44444444</h4>
+				<h1 @click="increment">{{ComputedTitle}}</h1>
+				<span >{{chTitle}}</span>
+				<first-child-cmp :chTitle="chTitle" ></first-child-cmp>
+				<p>{{title}}</p>
+				<slot name="test">插槽</slot>
+				<slot></slot>
+				<input type="text" v-model="chTitle" />
+				<slot name="test1">插槽</slot>
+			</div>
+		</template>
+		
+		<template id="firstChildCmp">
+			<div>
+				<h4>{{FirstChTitle}}h4</h4>
+				<h5>{{chTitle}}</h5>
+			</div>
+		</template>		
+	</body>
+	<script src="vue.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		Vue.directive("inputfocus",{
+			inserted:function(el){
+				el.focus();
+				console.dir(el);
+				el.value = "12313"
+			}
+		})
+		 new Vue({
+			el:"#app",
+			data:{
+				title:'123',
+				obj:{
+					name:'tim'
+				}
+			},
+			methods:{
+				parentClick:function(){
+					console.dir('2223333');
+				},
+				incrementall(param){
+					console.dir(param);
+				}
+			},
+			watch:{
+				title(){
+					alert(this.title);
+				}
+			},
+			directives:{
+				focus:{
+					inserted:function(el){
+						el.focus();
+					}
+				}
+			},
+			components:{
+				"firstCmp":{
+					template:'#firstCmp',
+					props:['title','obj'],
+					computed:{
+						ComputedTitle(){
+							return "ComputedTitle" + this.chTitle;
+						}
+					},
+					data:function(){
+					return{
+						chTitle:"childTile++++++++increment",
+						count:"1"
+					}
+					},
+					methods:{
+						childClick:function(){
+							alert("childClick");
+							this.$emit("childclick",this.count);
+						},
+						increment:function(){
+							alert("increment");
+							this.$emit('increment','这是参数');
+						}
+					},
+					components:{
+						'firstChildCmp':{
+							template:'#firstChildCmp',
+							props:['chTitle'],
+							data:function(){
+								return{
+									FirstChTitle:"FirstChTitle------"
+								}
+							},
+							computed:{
+								three(){
+								}
+							}
+						}
+					}
+				},
+
+			}
+		})
+		
+
+		
+		
+		
+	</script>
+</html>

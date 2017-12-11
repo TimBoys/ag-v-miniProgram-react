@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body >
+		<div id="app">
+		<router-link to="/">/</router-link>
+		<router-link to="/123">/123</router-link>
+		<router-link to="/100#name=123">/100</router-link>
+		<router-link to="index1/#1111">index/t1</router-link>
+		<router-link to="/index2">index2</router-link>
+		
+		<keep-alive>
+			<router-view></router-view>
+		</keep-alive>
+		</div>
+		
+		<template id="index">
+			<div>
+				<h1>appIndex</h1>
+				<p>{{$route.params.id}}</p>
+				<p>{{$route.query}}</p>
+				<p>{{$route.hash}}</p>
+				<router-view></router-view>
+			</div>
+		</template>
+		<template id="index2">
+			<div>
+				<h1>appIndex2</h1>
+			</div>
+		</template>	
+		<template id="t1">
+			<div>
+				<h1>t1</h1>
+				<p>{{$route.params.id}}</p>
+				<p>{{$route.query}}</p>
+				<p>{{$route.hash}}</p>
+			</div>
+		</template>			
+		<template id="t2">
+			<div>
+				<h1>t2</h1>
+			</div>
+		</template>			
+	</body>
+	<script src="vue.js" type="text/javascript" charset="utf-8"></script>
+	<script src="vue-router.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		 new Vue({
+			el:"#app",
+			data:{
+				title:'123',
+				obj:{
+					name:'tim'
+				}
+			},
+			router:new VueRouter({
+				routes:[{
+					path:"/:id",
+					component:{
+						template:"#index",
+						
+					},
+					children:[{
+						path:"index1/:id",
+						component:{
+							template:"#t1",
+							watch:{
+							"$route"(to,from){
+								console.dir(to + from);
+							}
+						}
+						},
+					}]
+				},{
+					path:"/index2",
+					component:{
+						template:"#index2"
+					}
+				}]
+			})
+		})
+		
+	</script>
+</html>
