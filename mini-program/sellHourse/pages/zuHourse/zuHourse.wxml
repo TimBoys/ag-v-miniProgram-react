@@ -1,0 +1,32 @@
+<!--pages/zuHourse/zuHourse.wxml-->
+      <swiper class="swiper" indicator-dots="true" autoplay="true" interval="4000" duration="500" circular="true" indicator-color="#fff" indicator-active-color="#2CBB6B">
+	        <block wx:for="{{swiperList}}" wx:key="index" wx:for-index="index">    
+	            <swiper-item>    
+	               <image src="{{item.carouseladdress}}" class="slideImage" mode="scaleToFill"/>     
+	            </swiper-item>    
+	        </block>
+	    </swiper> 
+
+
+  <view class='conts' scroll-y>
+  <block wx:for="{{maiHouseData}}"  wx:key="index">
+    <navigator url='{{item.urlPath}}'>
+      <view class='item_house'>
+          <view class='ih_left'>
+            <image src='{{item.imgPath}}' mode='scaleToFill'></image>
+          </view>
+          <view class='ih_right'>
+            <view class='ihr_top'>{{item.ihrTop_title}}</view>
+            <view class='ihr_center'>
+              <text>{{item.ihrCenter_left}}</text>
+              <text>{{item.ihrCenter_right}}</text>
+            </view>
+            <view class='ihr_bottom'>{{item.ihrBottom_title}}</view>
+          </view>
+      </view> 
+      </navigator>
+  </block>
+  <view class='noMsg'>
+    <text>已无更多了</text>
+  </view>
+  </view>

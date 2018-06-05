@@ -1,0 +1,79 @@
+<!--pages/detailHouse/detailHouse.wxml-->
+<view class='page'>
+      <swiper class="swiper" circular="true"  autoplay="true" interval="4000" duration="500">
+	        <block wx:for="{{showHouseData.swiperList}}" wx:key="index" wx:for-index="index">    
+	            <swiper-item>    
+	               <image src="{{item.carouseladdress}}" class="slideImage" mode="scaleToFill"/>   
+                 <text class='pPage'>{{index+1}}/{{showHouseData.swiperLength}}</text>  
+	            </swiper-item>    
+	        </block>
+	    </swiper> 
+
+<view class='cont_center'>
+  <view class='cc_top'>
+    <view class='cct_top'><text class='houseGold'>{{showHouseData.houseGold}}</text> </view>
+    <view class='cct_top'><text>列治文</text> <image src='../../images/detail/address.png' class='detailAddr' bindtap='detailAddr'></image></view>
+  </view>
+  <view  class='cc_center'>
+    <text class='ccc_pam'>{{showHouseData.housePrice}}</text>
+    <text class='ccc_pam'>{{showHouseData.housePlace}}</text>
+    <text class='ccc_pam'>{{showHouseData.houseMin}}</text>
+  </view>
+  <view class='cc_bottom'>
+    <view>
+      <text v-if="{{showHouseData.houseJjprice}}"><text class='gray'>叫价:</text>{{showHouseData.houseJjprice}}</text>
+      <text v-if="{{showHouseData.houseYueheprice}}"><text class='gray'>约合人民币:</text>{{showHouseData.houseYueheprice}}</text>
+      <text v-if="{{showHouseData.houseYueheprice}}"><text class='gray'>房屋面积:</text>{{showHouseData.houseYueheprice}}</text>
+      <text v-if="{{showHouseData.houseTudimin}}"><text class='gray'>土地面积:</text>{{showHouseData.houseTudimin}}</text>
+    </view>
+    <view>
+      <text v-if="{{showHouseData.houseHome}}"><text class='gray'>卧室:</text>{{showHouseData.houseHome}}</text>
+      <text v-if="{{showHouseData.houseBathroom}}"><text class='gray'>洗手间:</text>{{showHouseData.houseBathroom}}</text>
+      <text v-if="{{showHouseData.houseKitch}}"><text class='gray'>厨房:</text>{{showHouseData.houseKitch}}</text>
+      <text v-if="{{showHouseData.houseOld}}"><text class='gray'>建造年份:</text>{{showHouseData.houseOld}}</text>
+
+    </view>
+  </view>
+
+
+
+</view>
+
+<view class='cont_bottom'>
+  <view>
+    <view class='houseDetail'>房源详情</view>
+    <view>{{showHouseData.houseDetail}}</view>
+  </view>
+
+</view>
+
+
+<view class='lianxi_btn' bindtap='lianxi'>
+  <text>联系经纪人</text>
+</view>
+
+
+<modal wx:if="{{isShowModal}}" no-cancel="true" no-confirm="true" confirm-text="">
+<view class='modal_conts' >
+  <view class='modal_x' bindtap='disableModal'>x</view>
+  <view class='modalCenter'wx:for="{{lianxi_msg}}" wx:key="index">
+    <image src='../../images/detail/person.png' bindtap='navToPersion'></image>
+    <view class='modalC_text' bindtap='navToPersion'>
+      <text>{{item.person}}</text>
+      <text>本房源带看次数：{{item.dkcNum}}次</text>
+    </view>
+    <image src='../../images/detail/phone.png' bindtap='call_phone' data-phone="{{item.phone}}"></image>
+  </view>
+
+</view>
+</modal>
+
+<!--二维码/转发  -->
+<view class='qr_tran'>
+  <button class='qt_cont'  open-type='share'>
+      <image src='../../images/detail/transpond.png'></image>      
+  </button>
+</view>
+
+
+</view>

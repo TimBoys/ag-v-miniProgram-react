@@ -1,0 +1,69 @@
+<!--pages/maiHourse/maiHourse.wxml-->
+
+<view class="page">
+<!--导航三个start  -->
+  <view class="nav">
+    <view class="nav-son {{shownavindex == 1? 'active' : ''}}" bindtap="listqy" data-nav="1">
+      <view class="content">{{city}}</view>
+      <view class="icon"></view>
+    </view>
+    <view class="nav-son borders {{shownavindex == 2? 'active' : ''}}" bindtap="list" data-nav="2">
+      <view class="content">{{price}}</view>
+      <view class="icon"></view>
+    </view>
+    <view class="nav-son {{shownavindex == 3? 'active' : ''}}" bindtap="listpx" data-nav="3">
+      <view class="content">{{model}}</view>
+      <view class="icon"></view>
+    </view>
+  </view>
+<!--导航三个end  -->
+<!-- 地址选择start -->
+  <view class="quyu {{qyopen ? 'slidown' : 'slidup'}} {{qyshow ? 'disappear':''}}">
+  <view class='dc_addr'>
+      <view wx:for="{{qyContData}}" bindtap='selectcity' data-city='{{item}}' wx:key="index">{{item}}</view>
+      </view>
+  </view>
+<!-- 地址选择end -->
+
+<!-- 目的地start -->
+  <view class="temp temp1 {{nzopen ? 'slidown' : 'slidup'}} {{nzshow ? 'disappear':''}}">
+     <view class='dc_addr'>
+      <view wx:for="{{jgContData}}" bindtap='selectprice' data-city='{{item}}' wx:key="index">{{item}}</view>
+      </view>
+  </view>
+<!-- 目的地end -->
+
+<!-- 其他start -->
+  <view class="temp temp2 {{pxopen ? 'slidown' : 'slidup'}} {{pxshow ? 'disappear':''}}">
+      <view class='dc_addr'>
+      <view wx:for="{{hxContData}}" bindtap='selectmodel' data-city='{{item}}' wx:key="index">{{item}}</view>
+      </view>
+  </view>
+<!-- 其他end -->
+  <view class="fullbg {{isfull ?'fullopacity':''}}" bindtap="hidebg"></view>
+</view>
+      
+
+
+  <view class='conts' scroll-y>
+  <block wx:for="{{maiHouseData}}"  wx:key="index">
+    <navigator url='{{item.urlPath}}'>
+      <view class='item_house'>
+          <view class='ih_left'>
+            <image src='{{item.imgPath}}' mode='scaleToFill'></image>
+          </view>
+          <view class='ih_right'>
+            <view class='ihr_top'>{{item.ihrTop_title}}</view>
+            <view class='ihr_center'>
+              <text>{{item.ihrCenter_left}}</text>
+              <text>{{item.ihrCenter_right}}</text>
+            </view>
+            <view class='ihr_bottom'>{{item.ihrBottom_title}}</view>
+          </view>
+      </view> 
+      </navigator>
+  </block>
+  <view class='noMsg'>
+    <text>已无更多了</text>
+  </view>
+  </view>

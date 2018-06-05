@@ -1,0 +1,70 @@
+/* pages/zuHourse/zuHourse.wxss */
+.swiper{
+  height:400rpx;
+  width: 100%;
+}
+.slideImage,.searchIndex_v>.s_cont{
+  width: 100%;
+  height: 100%;
+}
+.searchIndex_v{
+  height: 80rpx;
+  line-height: 70rpx;
+  padding: 8rpx 16rpx;
+}
+.s_cont{
+  border-radius: 10rpx;
+  background-color: #f6f6f6;
+  text-align: center;
+  font-size: 32rpx;
+  color: #bfbfbf;
+}
+.conts{
+  height: calc(720rpx);
+}
+.dc_addr>view{
+  border-bottom: 1rpx solid #eee;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin-left: 30rpx;
+}
+/* house模板start */
+.item_house{
+  height: 240rpx;
+  padding: 0 30rpx;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.ih_right{
+  padding-left: 20rpx;
+  width: 430rpx;
+}
+.ih_left>image{
+  width: 220rpx;
+  height: 180rpx;
+}
+.ih_right>view{
+  line-height: 60rpx;
+}
+.ihr_center text:nth-of-type(2){
+  color: red;
+  float: right;
+}
+.ihr_bottom{
+  color: #aaa;
+  font-size: 26rpx;
+}
+.noMsg{
+  height: 60rpx;
+  background-color: #eee;
+  font-size: 30rpx;
+  color: #aaa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.noMsg>text{
+  text-align: center;
+}

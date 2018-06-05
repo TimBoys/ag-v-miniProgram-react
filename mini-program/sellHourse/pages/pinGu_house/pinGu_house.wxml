@@ -1,0 +1,66 @@
+<!--pages/pinGu_house/pinGu_house.wxml-->
+<view class='page'>
+    <view class='conts_addr'>
+      <image src='../../images/detail/address.png' class='detailAddr' ></image>
+      <text class='conts_shenz'>深圳</text>
+      <view  class='cont_sj'> <view></view></view>
+      </view>
+
+    <view class='conts_title'>
+      <text>我的房子值多少钱</text>
+      <text>在微信上随时关注房屋估值变动情况</text>
+    </view>
+
+    <view class='conts_conta'>
+      <view>
+        <label>小区</label>
+    <picker bindchange="bindPickerChange_xiaoqu" value="{{index_xiaoqu}}" range="{{array_xiaoqu}}" mode="selector">
+    <view class="picker">
+     {{array_xiaoqu[index_xiaoqu]}}
+    </view>
+  </picker>
+        <image src='../../images/detail/jiantou.png' class='imgJiantou'></image>
+      </view>
+      <view>
+        <label>面积</label>
+        <input placeholder='请输入'></input>
+        <view class='imgJiantou'>m²</view>
+      </view>
+      <view>
+        <label>户型</label>
+    <picker bindchange="bindPickerChange_huxin" value="{{index_huxin}}" range="{{array_huxin}}" mode="multiSelector">
+    <view class="picker">
+     {{array_huxin[0][index_huxin[0]]}}-{{array_huxin[1][index_huxin[1]]}}-{{array_huxin[2][index_huxin[2]]}}
+    </view>
+  </picker>
+        <image src='../../images/detail/jiantou.png' class='imgJiantou'></image>
+      </view>
+      <view>
+        <label>朝向</label>
+    <picker bindchange="bindPickerChange_chaoxiang" value="{{index_chaoxiang}}" range="{{array_chaoxiang}}" mode="selector">
+    <view class="picker">
+     {{array_chaoxiang[index_chaoxiang]}}
+    </view>
+  </picker>
+        <image src='../../images/detail/jiantou.png' class='imgJiantou'></image>
+      </view>
+      <view>
+        <label>楼层</label>
+    <picker bindchange="bindPickerChange_louceng" value="{{index_louceng}}" range="{{array_louceng}}" mode="selector">
+    <view class="picker">
+     {{array_louceng[index_louceng]}}
+    </view>
+  </picker>
+        <image src='../../images/detail/jiantou.png' class='imgJiantou'></image>
+      </view>
+    </view>
+
+
+  <view class='conts_btn' bindtap='conts_btn'>
+    <text>查看估价</text>
+  </view>
+
+  <view class='conts_tg'>
+    <text>95创享大数据提供</text>
+  </view>
+</view>

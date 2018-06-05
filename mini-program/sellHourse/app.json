@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/zuHourse/zuHourse",
+    "pages/maiHourse/maiHourse",
+    "pages/detailHouse/detailHouse",
+    "pages/pinGu_house/pinGu_house"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "新趋势",
+    "navigationBarTextStyle": "black"
+  }
+}
