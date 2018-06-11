@@ -4,7 +4,8 @@
     "pages/zuHourse/zuHourse",
     "pages/maiHourse/maiHourse",
     "pages/detailHouse/detailHouse",
-    "pages/pinGu_house/pinGu_house"
+    "pages/pinGu_house/pinGu_house",
+    "pages/canvas/canvas"
   ],
   "window": {
     "backgroundTextStyle": "light",

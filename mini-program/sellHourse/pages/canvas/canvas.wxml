@@ -1,0 +1,17 @@
+<!--pages/canvas/canvas.wxml-->
+<view bindlongtap='longTouchCanvas' class='canvasConts'>
+  <canvas canvas-id='myCanvas' >
+  
+  </canvas>
+</view>
+<button type="default" bindtap="actionSheetTap">弹出action sheet</button>
+<action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetbindchange">
+    <block wx:for-items="{{actionSheetItems}}">
+        <action-sheet-item bindtap="bind{{item.bindtap}}" style="width:50%;display:inline-block;">{{item.txt}}
+          <image src='https://qswebsite.oss-cn-beijing.aliyuncs.com/concat_service/sell_house/house/house1/house1_6.png' style="width:250rpx;height:150rpx;display:inline-block;"></image>
+        </action-sheet-item>
+    </block>
+</action-sheet>
+<view>
+    提示：您选择了菜单{{menu}}
+</view>

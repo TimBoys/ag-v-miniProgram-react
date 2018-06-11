@@ -22,5 +22,12 @@
   <image wx:if="{{bo_zan}}" src='../../images/index/zanting.png' bindtap='bo' data-bozan="0"></image>
   <!-- <view > 播放</view> -->
   </view>
+
+   <view >
+    <navigator url='../canvas/canvas'>
+    canvas
+    </navigator>
+  </view> 
+
 </view>
 <view class='search_house' bindtap='search_house'></view>

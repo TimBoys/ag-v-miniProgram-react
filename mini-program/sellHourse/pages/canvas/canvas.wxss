@@ -1,0 +1,22 @@
+/* pages/canvas/canvas.wxss */
+.canvasConts{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.canvasConts>canvas{
+  border: 1px solid;
+  width:600rpx;
+  height:1080rpx;
+  background-color: #fff;
+  
+}
+
+action-sheet{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
