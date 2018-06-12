@@ -14,6 +14,7 @@ Page({
     wx.onBackgroundAudioStop(function(){
       _this.setData({ bo_zan: 0 })
     })
+
   },
 
   //自定义事件

@@ -19,7 +19,6 @@ Page({
    */
   onLoad: function (options) {
 
-  
   },
 
   /**
@@ -44,13 +43,15 @@ Page({
     ctx.font = "10px Arial";
     ctx.fillText("你的房地产专家!", 20, 220);
     ctx.font = "12px Arial";
-    _this.drawText("本人从事房地产行业多年，你的房地产专家!本人从事房地产行业多年，你的房本人从!本人从事房地产行业多年，你的房", 20, 230, 250);
+    // _this.drawText("本人从事房地产行业多年，你的房地产专家!本人从事房地产行业多年，你的房本人从!本人从事房地产行业多年，你的房", 20, 230, 250);
     ctx.drawImage("../../images/canvas/logo1.jpg", 0, 0, 300, 160)
     ctx.drawImage("../../images/canvas/132.jpg", 75, 320, 150, 120)
     ctx.fillText("长按保存到相册!", 100, 500);
 
     ctx.draw();
   
+    this.showUploadImg();
+
   },
 
   /**
@@ -107,16 +108,23 @@ Page({
       }
     })
     wx.canvasToTempFilePath({
-      canvasId: 'myCanvas',
+      canvasId: 'uploadImg',
       x: 0,
       y: 0,
-      width: 300,
-      height: 540,
-      destWidth: 300,
-      destHeight:540,
+      width: 750,
+      height: 1492,
+      destWidth: 750,
+      destHeight: 1492,
+      quality:1,
       success:function(res){
         console.log(res.tempFilePath)
         _this.saveImgAlbum(res.tempFilePath)
+        wx.getImageInfo({
+          src: res.tempFilePath,
+          success:function(res){
+            console.log(res)
+          }
+        })
       }
     }, this)
   },
@@ -146,7 +154,7 @@ Page({
     var temp = "";
     var row = [];
 
-     this.ctx.font = "12px Arial";
+     this.ctx.font = "44px Arial";
     console.log()
     for (var a = 0; a < chr.length; a++) {
       if ( this.ctx.measureText(temp).width >= w) {
@@ -158,10 +166,31 @@ Page({
 
     row.push(temp);
     for (var b = 0; b < row.length; b++) {
-       this.ctx.fillText(row[b], x, y + (b + 1) * 20);
+       this.ctx.fillText(row[b], x, y + (b + 1) * 50);
     }
   },
+  //展示真实的图片
+  showUploadImg:function(){
+    var _this = this;
+    var ctx = wx.createCanvasContext("uploadImg", this);
+    _this.ctx = ctx;
+    ctx.setFillStyle("white");
+    ctx.fillRect(0, 0, 750, 1492);
+    ctx.drawImage("../../images/canvas/logo1.jpg", 0, 0, 750, 420)
+    ctx.setFillStyle("black");
+    ctx.font = "48px Arial";
+    ctx.fillText("吴军炎!", 20, 450);
+    ctx.font = "40px Arial";
+    ctx.fillText("你的房地产专家!", 20, 500);
+    ctx.font = "44px Arial";
+    _this.drawText("本人从事房地产行业多年，你的房地产专家!本人从事房地产行业多年，你的房本人从!本人从事房地产行业多年，你的房", 20, 530, 700);
+    ctx.drawImage("../../images/canvas/132.jpg", 75, 1000, 550, 520)
+    ctx.fillText("长按保存到相册!", 100, 1200);
 
+    ctx.draw();   
+
+
+  },
 
   actionSheetTap: function () {
     this.setData({
@@ -190,5 +219,56 @@ Page({
       menu: 3,
       actionSheetHidden: !this.data.actionSheetHidden
     })
+  },
+  animate:function(){
+    var _this = this;
+    
+    var goBack = this.toRotate();
+    console.log(goBack)
+    setInterval(function(){
+      console.log(goBack)
+      if (goBack == "go"){
+        goBack = _this.toRotate();
+      }else{
+        goBack = _this.chongZhi();
+      }
+    },3000)
+
+
+  },
+  toRotate:function(){
+    var _this = this;
+    _this.animation = wx.createAnimation({
+      transformOrigin: "50% 50%",
+      duration: 3000,
+      timingFunction: "linear",
+      delay: 0
+    })
+
+      _this.animation.scale(1,1).step()
+
+      _this.animation.translate(300).step();
+      this.setData({
+        animationData: _this.animation.export()
+      })
+
+      // this.initAnimate();
+      return "go";
+
+  },
+  chongZhi:function(){
+    var _this = this;
+    _this.animation.translate(0).step()
+    _this.animation.scale(1, 1).step()
+    this.setData({
+      animationData: _this.animation.export()
+    })    
+    return "back";
   }
+
+
+
+
+
+
 })

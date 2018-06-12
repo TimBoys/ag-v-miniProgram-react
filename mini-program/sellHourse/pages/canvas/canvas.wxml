@@ -4,14 +4,36 @@
   
   </canvas>
 </view>
+
+<button bindtap='showUploadImg'>显示真实图片</button>
+<scroll-view scroll-x="true">
+<canvas canvas-id='uploadImg' class='uploadImg'></canvas>
+
+
+
+</scroll-view>
+
+
+
+
+
+
+
+
+
+
+
+
 <button type="default" bindtap="actionSheetTap">弹出action sheet</button>
 <action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetbindchange">
-    <block wx:for-items="{{actionSheetItems}}">
+    <block wx:for-items="{{actionSheetItems}}" wx:key="index">
         <action-sheet-item bindtap="bind{{item.bindtap}}" style="width:50%;display:inline-block;">{{item.txt}}
           <image src='https://qswebsite.oss-cn-beijing.aliyuncs.com/concat_service/sell_house/house/house1/house1_6.png' style="width:250rpx;height:150rpx;display:inline-block;"></image>
         </action-sheet-item>
     </block>
 </action-sheet>
-<view>
+<view bindtap='animate'>
     提示：您选择了菜单{{menu}}
 </view>
+<button bindtap='chongZhi'>重置</button>
+<view animation="{{animationData}}" style="background:red;height:100rpx;width:100rpx"></view>
