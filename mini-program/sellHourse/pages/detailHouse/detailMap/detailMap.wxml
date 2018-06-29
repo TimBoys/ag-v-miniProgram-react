@@ -1,0 +1,17 @@
+<!--pages/detailHouse/detailMap/detailMap.wxml-->
+      <map 
+        id='map' 
+        latitude='49.219699'
+        longitude='-122.952495'
+        scale= "12"
+        markers='{{markers}}'
+        bindcontroltap="controltap"
+        bindmarkertap="markertap" 
+        bindregionchange="regionchange"
+    ></map>
+
+    <view class='mapContNav'>
+    <block wx:for="{{itemArray}}" wx:key="index">
+      <view bindtap='addLocation' data-seldata='{{index}}' class='{{item.selColor}}'>{{item.title}}</view>
+    </block>
+</view>

@@ -16,7 +16,10 @@ Page({
     })
 
   },
+  onShow:function(){
 
+
+  },
   //自定义事件
   mai_house:function(){
     wx.navigateTo({

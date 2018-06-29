@@ -1,4 +1,6 @@
 // pages/canvas/canvas.js
+
+
 Page({
 
   /**
@@ -11,7 +13,8 @@ Page({
       { bindtap: 'Menu1', txt: '菜单1' },
       { bindtap: 'Menu2', txt: '菜单2' },
     ],
-    menu: ''
+    menu: '',
+
   },
 
   /**
@@ -193,31 +196,33 @@ Page({
   },
 
   actionSheetTap: function () {
+    console.log("195")
     this.setData({
       actionSheetHidden: !this.data.actionSheetHidden
     })
   },
   actionSheetbindchange: function () {
+    console.log("202")    
     this.setData({
-      actionSheetHidden: !this.data.actionSheetHidden
+      actionSheetHidden: true
     })
   },
   bindMenu1: function () {
+    console.log("208")
     this.setData({
-      menu: 1,
-      actionSheetHidden: !this.data.actionSheetHidden
+      actionSheetHidden: false
     })
   },
   bindMenu2: function () {
+    console.log("214")
     this.setData({
-      menu: 2,
-      actionSheetHidden: !this.data.actionSheetHidden
+      actionSheetHidden: false
     })
   },
   bindMenu3: function () {
+    console.log("220")    
     this.setData({
-      menu: 3,
-      actionSheetHidden: !this.data.actionSheetHidden
+      actionSheetHidden: false
     })
   },
   animate:function(){
@@ -233,7 +238,6 @@ Page({
         goBack = _this.chongZhi();
       }
     },3000)
-
 
   },
   toRotate:function(){
@@ -264,7 +268,10 @@ Page({
       animationData: _this.animation.export()
     })    
     return "back";
-  }
+  },
+
+
+ 
 
 
 

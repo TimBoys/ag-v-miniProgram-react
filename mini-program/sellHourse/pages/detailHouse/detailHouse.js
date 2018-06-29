@@ -159,19 +159,21 @@ Page({
     showHouseData:[],
     isShowModal:false,
     lianxi_msg:[{
-      person:"张三",
+      person:"小张",
       dkcNum:"2",
       phone:"18305626606"
     }, {
-      person: "李四",
+        person: "小李",
       dkcNum: "12",
       phone: "18323226606"
       }, {
-        person: "王五",
+        person: "小王",
         phone: "18305622222",
         dkcNum: "5",
       }],
-      idHouse:null
+      idHouse:null,
+      
+      detailMap:"../../images/detail/detailMap.png"
 
   },
 
@@ -181,6 +183,7 @@ Page({
   onLoad: function (options) {
     console.log(options)
     var _this = this;
+    this.mapCtx = wx.createMapContext('map');
     this.setData({
       showHouseData: _this.data.houseData[options.idHouse - 1] || 0,
       idHouse: options.idHouse,
@@ -253,20 +256,14 @@ Page({
   // 自定义事件
   detailAddr:function(){
     var that = this;
-    wx.getLocation({
-      type: 'gcj02', 
-      success: function (res) {
-        var latitude = res.latitude
-        var longitude = res.longitude
-        wx.openLocation({
-          latitude: latitude,
-          longitude: longitude,
-          scale: 28
-        })
-      }
+    //温哥华经纬度
+    wx.openLocation({
+      latitude: 49.219699,
+      longitude: -122.952495,
+      name:"7070 walker ave burnaby",
+      scale: 14
     })
-   
-
+    
   },
   lianxi:function(){
     this.setData({
@@ -290,7 +287,34 @@ Page({
       // envVersion:'develop'
       envVersion:'trial'
     })
+  },
 
+  //移动到某位置
+  moveMineHome: function () {
+    // this.mapCtx.moveToLocation();
+    this.mapCtx.translateMarker({
+      markerId:1,
+      autoRotate: true,
+      duration: 200,
+      destination: {
+        latitude: 49.256679,
+        longitude: -123.007040,
+      },
+      animationEnd() {
+        console.log('animation end')
+      }
+    })
+  },
+
+  //选择
+  addAllLocations:function(e){
+    // console.log(e.currentTarget.dataset.seldata);
+    var mapIndex = e.currentTarget.dataset.seldata;
+    wx.navigateTo({
+      url: './detailMap/detailMap?mapIndex='+mapIndex,
+    })
 
   }
+
+      
 })

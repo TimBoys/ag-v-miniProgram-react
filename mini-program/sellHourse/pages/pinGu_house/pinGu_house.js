@@ -13,6 +13,7 @@ Page({
     index_chaoxiang: 0,
     array_louceng: ["1层", "2层", "3层", "4层", "5层", "6层", "7层", "8层", "9层", "10层", "11层", "12层", "13层", "14层", "15层", "16层", "17层", "18层", "19层", "20层", "21层", "22层", "23层", "24层", "25层", "26层", "27层", "28层", "29层", "30层", "32层", "33层", "34层", "35层", "36层", "37层", "38层", "39层", "40层", "41层", "42层", "43层", "44层", "45层", "46层", "47层", "48层", "49层", "50层" ],
     index_louceng: 0,
+    mianji:null,
   },
   /**
    * 生命周期函数--监听页面加载
@@ -92,6 +93,10 @@ Page({
     })
   },
   conts_btn:function(){
+    if (!this.data.mianji){
+      this.animatess();
+      return false;
+    }
     wx.showToast({
       title: '评估功能暂未开放！',
       icon:"none"
@@ -99,6 +104,63 @@ Page({
     setTimeout(function(){
     wx.hideToast();
     },2000)
+  },
+
+  mianji:function(e){
+    console.log(e.detail.value);
+    this.data.mianji = e.detail.value;
+  },
+  //抖动动画
+  animatess: function (res) {
+    var _this = this;
+    var animate = wx.createAnimation({
+      duration: 650, //动画时长 
+      timingFunction: "linear", //线性 
+      delay: 0 //0则不延迟 
+    })
+    this.animate = animate;
+    setTimeout(function () {
+      animate.translateX(50).step();
+      _this.setData({
+        animateData: animate.export()
+      })
+    }, 100)
+    setTimeout(function () {
+      animate.translateX(-50).step();
+      _this.setData({
+        animateData: animate.export()
+      })
+    }, 200)
+    setTimeout(function () {
+      animate.translateX(50).step();
+      _this.setData({
+        animateData: animate.export()
+      })
+    }, 300)
+    setTimeout(function () {
+      animate.translateX(-50).step();
+      _this.setData({
+        animateData: animate.export()
+      })
+    }, 400)
+    setTimeout(function () {
+      animate.translateX(50).step();
+      _this.setData({
+        animateData: animate.export()
+      })
+    },500)
+    setTimeout(function () {
+      animate.translateX(-50).step();
+      _this.setData({
+        animateData: animate.export()
+      })
+    }, 600)
+    setTimeout(function () {
+      animate.translateX(0).step();
+      _this.setData({
+        animateData: animate.export()
+      })
+    }, 650)
   }
   
 

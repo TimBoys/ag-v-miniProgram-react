@@ -164,3 +164,27 @@ modal{
   width: 50rpx;
   height: 50rpx;
 }
+/*地图  */
+.mapCont{
+  border-top: 40rpx solid #eee;
+  padding: 30rpx;
+}
+#map{
+  width: 100%;
+  height: 500rpx;
+}
+.mapContNav{
+  display: flex;
+  margin-top: 10rpx;
+}
+.mapContNav>view{
+  flex: 1;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  border: 1px solid  #999;
+  border-right: 0px;
+}
+.mapContNav>view:nth-last-child(1){
+  border: 1px solid  #999;
+}

@@ -1,0 +1,31 @@
+<!--pages/canvas/map/map.wxml-->
+    <map 
+        id='map' 
+        longitude="113.324520" 
+        latitude="23.099994"
+        show-location
+        markers='{{markers}}'
+        polyline="{{polyline}}"
+        controls="{{controls}}"
+        bindcontroltap="controltap"
+        bindmarkertap="markertap" 
+        bindregionchange="regionchange"
+    ></map>
+ <button type="primary" bindtap="moveToLocation" class='primary'>移动位置</button> 
+
+<!--自定义弹出框  -->
+<view class="container-column" style='background:grey;'>  
+     
+    <view animation="{{animationData}}" class="container-column buydes-dialog-container" wx:if="{{showModalStatus}}" >  
+        <view class="buydes-dialog-container-top" bindtap="hideModal"></view>  
+        <view class="container-column buydes-dialog-container-bottom">  
+          <block wx:for="{{['操作1','操作2','操作3','取消']}}" wx:for-index="index" wx:key="key" wx:for-item="item">  
+              <view bindtap="hideModal" class="buydes-dialog-container-bottom-item" >{{item}}</view>  
+          </block>  
+        </view>  
+    </view>  
+
+  
+</view>
+
+    <!-- <button bindtap="showModal"  style="width:100px;;height:40px;" >上拉弹出</button>   -->

@@ -25,10 +25,11 @@
 
 
 <button type="default" bindtap="actionSheetTap">弹出action sheet</button>
-<action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetbindchange">
+<action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetbindchange" style="position:relative;">
     <block wx:for-items="{{actionSheetItems}}" wx:key="index">
         <action-sheet-item bindtap="bind{{item.bindtap}}" style="width:50%;display:inline-block;">{{item.txt}}
-          <image src='https://qswebsite.oss-cn-beijing.aliyuncs.com/concat_service/sell_house/house/house1/house1_6.png' style="width:250rpx;height:150rpx;display:inline-block;"></image>
+          <image wx:if="{{!actionSheetHidden}}" src='https://qswebsite.oss-cn-beijing.aliyuncs.com/concat_service/sell_house/house/house1/house1_6.png' style="width:250rpx;height:150rpx;display:block;position:absolute;top:-50px;"></image>
+          <button>123123</button>
         </action-sheet-item>
     </block>
 </action-sheet>
@@ -37,3 +38,6 @@
 </view>
 <button bindtap='chongZhi'>重置</button>
 <view animation="{{animationData}}" style="background:red;height:100rpx;width:100rpx"></view>
+
+
+  

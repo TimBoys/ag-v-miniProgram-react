@@ -90,3 +90,10 @@ page{
   text-align: center;
 
 }
+.labelText{
+  display: inline-block;
+  width:80rpx;
+}
+.inputMianji{
+  width: 346rpx;
+}

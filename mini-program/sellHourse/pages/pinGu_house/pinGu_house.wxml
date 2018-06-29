@@ -13,7 +13,7 @@
 
     <view class='conts_conta'>
       <view>
-        <label>小区</label>
+        <label class='labelText'>小区</label>
     <picker bindchange="bindPickerChange_xiaoqu" value="{{index_xiaoqu}}" range="{{array_xiaoqu}}" mode="selector">
     <view class="picker">
      {{array_xiaoqu[index_xiaoqu]}}
@@ -22,12 +22,12 @@
         <image src='../../images/detail/jiantou.png' class='imgJiantou'></image>
       </view>
       <view>
-        <label>面积</label>
-        <input placeholder='请输入'></input>
+        <label class='labelText'>面积</label>
+        <input placeholder='请输入' bindinput='mianji' animation="{{animateData}}" class='inputMianji'></input>
         <view class='imgJiantou'>m²</view>
       </view>
       <view>
-        <label>户型</label>
+        <label class='labelText'>户型</label>
     <picker bindchange="bindPickerChange_huxin" value="{{index_huxin}}" range="{{array_huxin}}" mode="multiSelector">
     <view class="picker">
      {{array_huxin[0][index_huxin[0]]}}-{{array_huxin[1][index_huxin[1]]}}-{{array_huxin[2][index_huxin[2]]}}
@@ -36,7 +36,7 @@
         <image src='../../images/detail/jiantou.png' class='imgJiantou'></image>
       </view>
       <view>
-        <label>朝向</label>
+        <label class='labelText'>朝向</label>
     <picker bindchange="bindPickerChange_chaoxiang" value="{{index_chaoxiang}}" range="{{array_chaoxiang}}" mode="selector">
     <view class="picker">
      {{array_chaoxiang[index_chaoxiang]}}
@@ -45,7 +45,7 @@
         <image src='../../images/detail/jiantou.png' class='imgJiantou'></image>
       </view>
       <view>
-        <label>楼层</label>
+        <label class='labelText'>楼层</label>
     <picker bindchange="bindPickerChange_louceng" value="{{index_louceng}}" range="{{array_louceng}}" mode="selector">
     <view class="picker">
      {{array_louceng[index_louceng]}}

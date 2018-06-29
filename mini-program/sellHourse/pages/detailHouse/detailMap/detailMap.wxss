@@ -1,0 +1,27 @@
+/* pages/detailHouse/detailMap/detailMap.wxss */
+.mapCont{
+  border-top: 40rpx solid #eee;
+  padding: 30rpx;
+}
+#map{
+  width: 100%;
+  height:calc(100% - 80rpx);
+}
+.mapContNav{
+  display: flex;
+  margin-top: 20rpx;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+.mapContNav>view{
+  flex: 1;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  border: 1px solid #999;
+  border-right: 0px;
+}
+.selColor{
+  color: #F0C11D;
+}

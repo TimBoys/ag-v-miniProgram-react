@@ -1,8 +1,9 @@
 <import src="../../wxParse/wxParse.wxml"/> 
 <view class='conts'>
-  <image class='header' src='../../images/index/index.jpg'></image>
+  <!-- <image class='header' src='../../images/index/index.jpg'></image> -->
+  <image class='header' src='../../images/index/home.png'></image>
   <view class='mzs_conts'>
-    <view class='singe_conts' bindtap='mai_house'>
+    <!-- <view class='singe_conts' bindtap='mai_house'>
       <image src='../../images/index/mai_house.jpg'></image>
       <text>买房</text>
     </view>
@@ -10,24 +11,40 @@
       <image src='../../images/index/zu_house.jpg'></image>
       <text>租房</text>
     </view>
-        <view class='singe_conts'  bindtap='pinGu_house'>
+     <view class='singe_conts'  bindtap='pinGu_house'>
       <image src='../../images/index/pinGu_house.jpg'></image>
       <text>评估</text>
-    </view>
+    </view> -->
   </view>
-    <image class='footer' src='../../images/index/footer1.jpg'></image>
+    <!-- <image class='footer' src='../../images/index/footer1.jpg'></image> -->
 
   <view class='bo_zan'>
   <image wx:if="{{!bo_zan}}" src='../../images/index/bofan.png' bindtap='bo' data-bozan="1"></image>
   <image wx:if="{{bo_zan}}" src='../../images/index/zanting.png' bindtap='bo' data-bozan="0"></image>
-  <!-- <view > 播放</view> -->
   </view>
 
-   <view >
+    <!-- <view >
     <navigator url='../canvas/canvas'>
     canvas
     </navigator>
   </view> 
 
+   <view >
+    <navigator url='../canvas/map/map'>
+    canvas->map
+    </navigator>
+  </view> 
+
+   <view >
+    <navigator url='../canvas/modal/modal'>
+    canvas->modal
+    </navigator>
+  </view>   -->
+
 </view>
 <view class='search_house' bindtap='search_house'></view>
+<view class='mzp_cont'>
+  <view class='mzp_btn' bindtap='mai_house'></view>
+  <view class='mzp_btn' bindtap='zu_house'></view>
+  <view class='mzp_btn' bindtap='pinGu_house'></view>
+</view>
