@@ -19,7 +19,7 @@ Vue.use(VueLazyload, {
 console.log('❤❤❤ 本程序由 jon-millent 编写， github@ github.com/jon-millent ❤❤❤')
 
 var domainCross = ['show.liluo.cc', 'show.thisummer.com']
-
+console.log(router.openPage)
 router.beforeEach((to, from, next)=>{
 
   store.commit('nowStatus', 'loading')

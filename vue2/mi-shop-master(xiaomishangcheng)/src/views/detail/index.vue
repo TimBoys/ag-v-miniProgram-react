@@ -117,7 +117,7 @@
         this.hide = true;
 
         var id = this.$router.currentRoute.params.id;
-
+				console.log(id)
         if(!id){
           this.$router.replace('/error/404')
         }
